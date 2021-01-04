@@ -1,7 +1,7 @@
 ---
   title: "Final Project"
 author: "Jason Tran"
-date: "25/12/2020"
+date: "08/01/2021"
 output: html_document
 ---
   
@@ -10,18 +10,15 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 #  Explore the immigration from Chinese-speaking countries to Denmark with data from Danmarks Statistik
-
-**Your task: Use the guide given by Adela in week 5 of 'Digital Methods' to explore the data and visualize it in both static and animated ways, providing answers and solutions to 7 questions/tasks below. I will follow the guide very strictly by basically stealing the whole process from start to finish with my own notes on what I'm doing.**
+**Your task: Use the guide given by Adela in week 5 of 'Digital Methods' to explore the data and visualize it in both static and animated ways.**
   
   ## Get the necessary packages
   First, start with installing the relevant packages 'tidyverse','gganimate' and 'ggplot2' and read the relevant csv-files or xls-files in my case.
-
 
 #But first I want to setup the working directory. I used this
 ```{r}
 setwd("C:/Users/User/Desktop/Skole/E20/Teoriorienteret metode/del 2/Opgaveskrivning")
 ```
-
 
 #Now I install all the neccessary packages. I am not sure how the ggplot2 is used, since we didn't really use it in the finshed one as far as I know. In the example Adela showed in class it was just 'ggplot'. The first 4 are packages to be used later, and everything afterwards are the .xls-files I retrieved from Danmarks Statistik for this assignment in covering the immigration from Chinese-speaking countires to Denmark
 ```{r libraries, echo = FALSE}
@@ -41,8 +38,6 @@ Skiftet_Statsborgerskab_1979_2019 <- read_csv("OpenRefined/Skiftet_Statsborgersk
 View(Skiftet_Statsborgerskab_1979_2019)
 ```
 
-
-
 ## Look at the data
 First, see which specific years are actually represented in the dataset and what variables are being recorded for each country. Note that when you run the cell below, Rmarkdown will give you two results - one for each line - that you can flip between.
 ```{r}
@@ -58,7 +53,6 @@ Cause_Immigrants <- Causes_1997_2019$Immigrants
 Cause_Year <- Causes_1997_2019$Year
 Cause_Country <- Causes_1997_2019$Country
 ```
-
 
 Let's plot all the countries according to Cause of Immigration.
 ```{r Causes_1997_2019}
@@ -88,7 +82,6 @@ Citizenship_Immigrants <-Statsborgerskab_1980_2019$Immigrants
 Citizenship_Year <- Statsborgerskab_1980_2019$Year
 Citizenship_Country <- Statsborgerskab_1980_2019$Country
 ```
-
 
 ```{r Statsborgerskab_1980_2019}
 g <- theme_set(theme_bw())  # set theme to white background for better visibility
