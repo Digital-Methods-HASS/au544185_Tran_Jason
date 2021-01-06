@@ -1,0 +1,305 @@
+[
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 2",
+    "newColumnName": "Country",
+    "description": "Rename column Column 2 to Country"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 3",
+    "newColumnName": "1980",
+    "description": "Rename column Column 3 to 1980"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 4",
+    "newColumnName": "1981",
+    "description": "Rename column Column 4 to 1981"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 5",
+    "newColumnName": "1982",
+    "description": "Rename column Column 5 to 1982"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 6",
+    "newColumnName": "1983",
+    "description": "Rename column Column 6 to 1983"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 7",
+    "newColumnName": "1984",
+    "description": "Rename column Column 7 to 1984"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 8",
+    "newColumnName": "1985",
+    "description": "Rename column Column 8 to 1985"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 9",
+    "newColumnName": "1986",
+    "description": "Rename column Column 9 to 1986"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 10",
+    "newColumnName": "1987",
+    "description": "Rename column Column 10 to 1987"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 11",
+    "newColumnName": "1988",
+    "description": "Rename column Column 11 to 1988"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 12",
+    "newColumnName": "1989",
+    "description": "Rename column Column 12 to 1989"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 13",
+    "newColumnName": "1990",
+    "description": "Rename column Column 13 to 1990"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 14",
+    "newColumnName": "1991",
+    "description": "Rename column Column 14 to 1991"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 15",
+    "newColumnName": "1992",
+    "description": "Rename column Column 15 to 1992"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 16",
+    "newColumnName": "1993",
+    "description": "Rename column Column 16 to 1993"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 17",
+    "newColumnName": "1994",
+    "description": "Rename column Column 17 to 1994"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 18",
+    "newColumnName": "1995",
+    "description": "Rename column Column 18 to 1995"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 19",
+    "newColumnName": "1996",
+    "description": "Rename column Column 19 to 1996"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 20",
+    "newColumnName": "1997",
+    "description": "Rename column Column 20 to 1997"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 21",
+    "newColumnName": "1998",
+    "description": "Rename column Column 21 to 1998"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 22",
+    "newColumnName": "1999",
+    "description": "Rename column Column 22 to 1999"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 23",
+    "newColumnName": "2000",
+    "description": "Rename column Column 23 to 2000"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 24",
+    "newColumnName": "2001",
+    "description": "Rename column Column 24 to 2001"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 25",
+    "newColumnName": "2002",
+    "description": "Rename column Column 25 to 2002"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 26",
+    "newColumnName": "2003",
+    "description": "Rename column Column 26 to 2003"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 27",
+    "newColumnName": "2004",
+    "description": "Rename column Column 27 to 2004"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 28",
+    "newColumnName": "2005",
+    "description": "Rename column Column 28 to 2005"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 29",
+    "newColumnName": "2006",
+    "description": "Rename column Column 29 to 2006"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 30",
+    "newColumnName": "2007",
+    "description": "Rename column Column 30 to 2007"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 31",
+    "newColumnName": "2008",
+    "description": "Rename column Column 31 to 2008"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 32",
+    "newColumnName": "2009",
+    "description": "Rename column Column 32 to 2009"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 33",
+    "newColumnName": "2010",
+    "description": "Rename column Column 33 to 2010"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 34",
+    "newColumnName": "2011",
+    "description": "Rename column Column 34 to 2011"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 35",
+    "newColumnName": "2012",
+    "description": "Rename column Column 35 to 2012"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 36",
+    "newColumnName": "2013",
+    "description": "Rename column Column 36 to 2013"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 37",
+    "newColumnName": "2014",
+    "description": "Rename column Column 37 to 2014"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 38",
+    "newColumnName": "2015",
+    "description": "Rename column Column 38 to 2015"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 39",
+    "newColumnName": "2016",
+    "description": "Rename column Column 39 to 2016"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 40",
+    "newColumnName": "2017",
+    "description": "Rename column Column 40 to 2017"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 41",
+    "newColumnName": "2018",
+    "description": "Rename column Column 41 to 2018"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "Column 42",
+    "newColumnName": "2019",
+    "description": "Rename column Column 42 to 2019"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Blank values per column",
+          "expression": "filter(row.columnNames,cn,isBlank(cells[cn].value))",
+          "columnName": "",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "1980",
+                "l": "1980"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "record-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/transpose-columns-into-rows",
+    "startColumnName": "1980",
+    "columnCount": -1,
+    "ignoreBlankCells": true,
+    "fillDown": false,
+    "separator": null,
+    "keyColumnName": "Year",
+    "valueColumnName": "Immigrants",
+    "description": "Transpose cells in columns starting with 1980 into rows in two new columns named Year and Immigrants"
+  },
+  {
+    "op": "core/fill-down",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Country",
+    "description": "Fill down cells in column Country"
+  },
+  {
+    "op": "core/fill-down",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Indvandring efter køn, indvandringsland og tid",
+    "description": "Fill down cells in column Indvandring efter køn, indvandringsland og tid"
+  }
+]
