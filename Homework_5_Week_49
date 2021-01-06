@@ -1,7 +1,7 @@
 ---
   title: "HW5 - Make Data Move"
 author: "Jason Tran"
-date: "30/11/2020"
+date: "30/11/2020."
 output: html_document
 ---
   
@@ -9,7 +9,7 @@ output: html_document
   ### I HAVEN'T CHANGED THE CONTENTS OF THIS EXCEPT FOR THE DATE AND THE AUTHOUR AT LINE 3 AND 4
   ## PLEASE LOOK IN THE WORD DOCUMENT ATTACHED AT BLACKBOARD INSTEAD.
   # THIS DOCUMENT ONLY EXISTS FOR THE SOLE SAKE OF PROVING THAT I SUBMITTED IN GITHUB, AND ALSO AS A BACKUP IF I FUCK UP ON MY COMPUTER.
-  
+  ##Update: 6th of January. Wanted to move this into a new branch.
   
   ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
