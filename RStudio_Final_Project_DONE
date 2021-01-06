@@ -1,0 +1,245 @@
+---
+title: "Immigration_Project"
+author: "Jason Tran"
+date: "8/1/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#  Explore the immigration from Chinese-speaking countries to Denmark with data from Danmarks Statistik
+
+#The first 4 lines are packages neccessary for this project, and everything afterwards are the .xls-files I retrieved from Danmarks Statistik for this assignment in covering the immigration from Chinese-speaking countires to Denmark
+```{r libraries, echo = FALSE}
+library(tidyverse)
+library(gganimate)
+library(ggplot2)
+library(readxl)
+#This is the dataset from https://www.statistikbanken.dk/VAN8A
+Causes <- read_excel("OpenRefined/Causes_1997-2019.xls")
+View(Causes)
+#This is the dataset from https://www.statistikbanken.dk/statbank5a/default.asp?w=1920
+Changed_Citizenship <- read_excel ("OpenRefined/Changed_Citizenship_1979-2019.xls")
+View(Changed_Citizenship)
+#This is the dataset from https://www.statistikbanken.dk/INDVAN categorized by citizenship
+Citizenship <- read_excel("OpenRefined/Citizenship_1980-2019.xls")
+View(Citizenship)
+#This is the dataset from https://www.statistikbanken.dk/INDVAN with the total number of immigrants
+Immigration <- read_excel("OpenRefined/Immigration_1980-2019.xls")
+View(Immigration)
+#This is the dataset from https://www.statistikbanken.dk/INDVAN with only foreign immigrants
+Foreign_Immigration <- read_excel("OpenRefined/Foreign_Immigration_1980-2019.xls")
+View(Foreign_Immigration)
+
+```
+#Now I want to plots out of the datasets alphabetically starting with causes
+
+```{r Causes 1997-2019}
+#This is a plot displaying the years on the x-axis and the number of immigrants on the y-axis. The causes of immigration are displayed with colours. In this plot it is quite obvious that the four main reasons for Chinese immigration is 1) studying and education (pink), 2) business (brown), 3) family reunification (blue) and 4) EU/EØS (Green). Furthermore, it is obvious from this plot that China is the country with most immigrants
+Causes %>%
+  ggplot(aes(x = Year, y = Immigrants, color = `Cause of Immigration`)) +
+  geom_point()+
+  labs(title = "Causes of Immigration", x = "Year", y = "Immigrants")+
+    facet_wrap(~Country)
+```
+```{r Causes 1997-2019}
+#So now that I know China is the Chinese-speaking country with most immigrants, I will make an animation to show the different countries since the geom_count plot is very cluttered and not nice to look at.
+Causes_Country <- Causes %>%
+  ggplot(aes(x = Year, y = Immigrants, color = `Cause of Immigration`)) +
+  geom_point()+
+  transition_states(Country)+
+  labs(title = "Country", x = "Year", y = "Immigrants")
+```
+```{r Causes 1997-2019}
+Causes_Country + transition_states(Country, transition_length = 1, state_length = 1)+
+  labs(title = "{closest_state}", x = "Year", y = "Immigrants")
+```
+```{r Causes 1997-2019}
+#Alternatively, I could make a facet_wrap to show the countries separately without making an animation
+Causes %>%
+  ggplot(aes(x = Year, y = Immigrants, color = `Cause of Immigration`)) +
+  geom_point()+
+labs(title = "Country of immigration and causes", x = "Year", y = "Immigrants")+
+  facet_wrap(~ Country)
+```
+```{r Causes 1997-2019}
+#For convenience sake, I actually want to see the progression from year to year, therefore I made this animation, although it isn't pretty or a good plot in any way, it still does its job and makes it easier to see the progression over the years.
+Causes_Year <- Causes %>%
+  ggplot(aes(x = Year, y = Immigrants, color = `Cause of Immigration`)) +
+  geom_point()+
+  transition_states(Year)+
+  labs(title = "Years", x = "Year", y = "Immigrants")
+```
+```{r Causes 1997-2019}
+Causes_Year + transition_states(Year, transition_length = 0.01, state_length = 0.01)+
+  labs(title = "{closest_state}", x = "Year", y = "Immigrants")
+```
+```{r Causes 1997-2019}
+#Lastly, if I want to show the average number of immigrants over the 22-year period from 1997-2019, I can show it in a boxplot.
+Causes %>% 
+   ggplot(aes(x = Country, y = Immigrants, color = `Cause of Immigration`)) +
+  geom_boxplot() +
+  labs(title = "Causes of Immigration", x = "Country of origin", y = "Immigrants")
+```
+```{r Citizenship 1980-2019}
+#Now I know the main reasons for Chinese immigration to Denmark. Now I want to know, whether or not they have Chinese citizenship or not. I.e. if a Danish person lives and works in China, do they count in the statistics?
+```
+
+```{r Citizenship 1980-2019}
+#Now I know the main reasons for Chinese immigration to Denmark. I could use the same spreadsheet to answer my question of what causes the Chinese have for immigrating to Denmark. Now I want to know, whether or not they have Chinese citizenship or not. By using this plot it becomes quite clear that it is mainly foreign citizens who immigrate to Denmark.
+Citizenship %>% 
+  ggplot(aes(x = Year, Immigrants, color = Citizenship))+
+  geom_point()+
+  labs(title = "Citizenship", x = "Year", y = "Immigrants")
+```
+```{r Citizenship 1980-2019}
+#Now I want to know whether there it is mainly men or women who immigrate to Denmark. In average, there are marginally more men than women immigrating from Chinese-speaking countries to Denmark. Animations are unneccessary to show this, however, I have made some anyways below the boxplots since the animations can show the progression in years.
+Citizenship %>%
+  ggplot(aes(x = `Indvandring efter køn, statsborgerskab, indvandringsland og tid`, y = Immigrants, color = Country)) +
+  geom_boxplot()+
+  labs(title = "Citizenship", x = "Gender", y = "Immigrants")
+```
+```{r Citizenship 1980-2019}
+# However, if you divide it by citizenship, then there are actually more foreign women than foreign men who immigrate to Denmark.
+Citizenship %>% 
+   ggplot(aes(x = `Indvandring efter køn, statsborgerskab, indvandringsland og tid`, y = Immigrants, color = Country)) +
+  geom_boxplot() +
+  labs(title = "Citizenship", x = "Gender", y = "Immigrants")+
+  facet_wrap(~Citizenship)
+```
+```{r Citizenship 1980-2019}
+#And this one shows that there are quite a lot of immigrants with Danish citizenship arriving from China. This makes it even more obvious that during this period of 1980-2019, it was from China that most foreign women immigrated to Denmark.
+Citizenship %>% 
+   ggplot(aes(x = `Indvandring efter køn, statsborgerskab, indvandringsland og tid`, y = Immigrants, color = Citizenship)) +
+  geom_boxplot() +
+  labs(title = "Citizenship", x = "Gender", y = "Immigrants")+
+  facet_wrap(~Country)
+```
+```{r Citizenship 1980-2019}
+#I will do the animations now. This  animation will have two states, one for men and one for women. From this plot, it is clear that after 1995, the number of both foreign men and women increases drastically with the number of foreign women increasing most steeply. Before 1995, the number of foreign men and women are almost the same and the number of Danish men and women are more or less follows the same pattern throughout the period with marginally more men and a big increase in immigrants ca. 2005 for both men and women.
+Citizenship_anim_by_year <- Citizenship %>% 
+  ggplot(aes(x = Year, Immigrants, color = Citizenship)) +
+  geom_point() +
+  transition_states(`Indvandring efter køn, statsborgerskab, indvandringsland og tid`) +
+  labs(title = "Citizenship", x = "Year", y = "Immigrants")
+```
+```{r}
+Citizenship_anim_by_year + transition_states(`Indvandring efter køn, statsborgerskab, indvandringsland og tid`, transition_length = 1, state_length = 1)+
+  labs (title = "Citizenship of {closest_state}", x = "Year", y = "Immigrants")
+```
+```{r Citizenship 1980-2019}
+#In this animation I changed the states into citizenship and the colours into gender. It shows a pattern of mostly foreign women immigrating into Denmark, and Danish men immmigrating into Denmark. If you combine these two animated pointplots with the boxplots, you can see that even though there is a big difference in the foreign and Danish immigration from China, the difference between the immigration from other Chinese-speaking countries are not as big.
+Citizenship_anim_Gender <- Citizenship %>% 
+  ggplot(aes(x = Year, Immigrants, color = `Indvandring efter køn, statsborgerskab, indvandringsland og tid`))+
+  geom_point()+
+  transition_states(Citizenship) +
+  labs(title = "Citizenship of Immigrants", x = "Year", y = "Immigrants")
+```
+```{r Citizenship 1980-2019}
+Citizenship_anim_Gender + transition_states(Citizenship, transition_length = 1, state_length = 1)+
+  labs (title = "{closest_state} citizenship", x = "Year", y = "Immigrants", color = "Gender")
+```
+```{r Changed Citizenship 1979-2019}
+#Now I want to know how many people had their citizenship changed during this period. Did the Chinese settle permanently, or did they not do that? From this pointplot, it is quite easy to see that there indeed have been some changes, mostly from China, into a Danish citizenship.
+Changed_Citizenship %>% 
+ggplot(aes(Year, Immigrants, color = Country))+
+  geom_point() +
+  labs(title = "Changed Citizenship", x = "Year", y = "Immigrants")
+```
+```{r Changed Citizenship 1979-2019}
+#Again, it could be interesting to see whether it is men or women who changed their citizenship. And it seems to mostly be women who decides to change their citizenship to a Danish
+Changed_Citizenship %>%
+  ggplot(aes(x= `Personer, der har skiftet til dansk statsborgerskab efter køn, tidligere statsborgerskab og tid`, y = Immigrants, color = Country)) +
+  geom_boxplot()+
+  labs(title = "Changed Citizenship", x = "Gender", y = "Immigrants")
+```
+```{r Changed Citizenship 1979-2019}
+#By making some animations I can yet again see the progression in time. If I make the states by gender, I can see that although there are more women in average who changed their citizenship, this is because there was a huge and very sudden  spike in the period 2000-2008, whereas the men in the same period had a small dive. Before 2000 and after 2008, the two genders closely followed the same kind of pattern. 
+Changed_anim <- Changed_Citizenship %>%
+  ggplot(aes(Year, Immigrants, color = Country))+
+  geom_point()+
+  transition_states(`Personer, der har skiftet til dansk statsborgerskab efter køn, tidligere statsborgerskab og tid`)+
+  labs(title = "Changed Citizenship", x = "Year", y = "Immigrants")
+```
+```{r Changed Citizenship 1979-2019}
+Changed_anim + transition_states(`Personer, der har skiftet til dansk statsborgerskab efter køn, tidligere statsborgerskab og tid`, transition_length = 1, state_length = 1)+
+  labs (title = "{closest_state}", x = "Year", y = "Immigrants")
+```
+```{r Changed Citizenship 1979-2019}
+#And as shown here, the difference between men and women from China are mainly in the period 2000-2008 whereas the other countries are quite stable. NB: This one is scaled logarhithmically in the y-axis because of the Chinese spike from 2000-2008. If I didn't do this, it would be hard to see the data from Hong Kong, Singapore and Taiwan. If you want a more precise scale of the Chinese progression, simply delete the "scale_y_log10()+" line. 
+Changed_Citizenship %>%
+  ggplot(aes(Year, Immigrants, color = `Personer, der har skiftet til dansk statsborgerskab efter køn, tidligere statsborgerskab og tid`))+
+  scale_y_log10()+
+  geom_point()+
+  labs(title = "Changed Citizenship", x = "Year", y = "Immigrants", color = "Gender")+
+  facet_wrap(~Country)
+```
+```{r Immigration 1980-2019}
+#Now I want to check the total immigration. Which interestingly shows quite a big number of immigration from Singapore not shown in the other datasets. China is still the biggest, but in this dataset I don't need to scale the y-axis logarithmically to see the other countries. 
+Immigration %>%
+  ggplot(aes(x= Year, y = Immigrants, color = Country)) +
+  geom_point()+
+  labs(title = "Immigration", x = "Year", y = "Immigrants")
+```
+```{r Immigration 1980-2019}
+#Now based on gender, where it can be seen that in total there is a bigger number of women immigrating from Mainland China, but not significantly bigger. And from Singapore, there are marginally more men.
+Immigration %>%
+  ggplot(aes(x= Year, y = Immigrants, color = `Indvandring efter køn, indvandringsland og tid`)) +
+  geom_point()+
+  labs(title = "Immigration", x = "Year", y = "Immigrants", color = "Gender")
+```
+```{r Immigration 1980-2019}
+#In a boxplot, it can be seen that in average, there are more men immigrating to Denmark from the other Chinese-speaking countries and now there are even some activity from Macao. NB: This boxplot is scaled logarithmically
+Immigration %>%
+  ggplot(aes(x= `Indvandring efter køn, indvandringsland og tid`, y = Immigrants, color = Country)) +
+  scale_y_log10()+
+  geom_boxplot()+
+  labs(title = "Immigration", x = "Gender", x = "Country")
+```
+```{r Immigration 1980-2019}
+#This animation shows the immigration of men and women in the years from 1980-2019. Notice that the difference between men and women isn't very big, and that both Singpapore and Hong Kong during the whole period tends to have few a more male immigrants than female.
+Immigration_anim <- Immigration %>%
+  ggplot(aes(x= Year, y = Immigrants, color = Country)) +
+  geom_count()+
+  transition_states(`Indvandring efter køn, indvandringsland og tid`)
+  labs(title = "Immigration", x = "Gender", y = "Immigrants")
+```
+```{r Immigration 1980-2019}
+Immigration_anim + transition_states(`Indvandring efter køn, indvandringsland og tid`, transition_length = 1, state_length = 1)+
+  labs (title = "Immigration in {closest_state}", x = "Gender", y = "Immigrants")
+```
+```{r Foreign Immigration 1980-2019}
+#Now I only want the ones with a foreign citizenship. This dataset has the same information as the one named Immigration, however the Danish citizens are excluded. If you compare this plot with the ones including Danish citizens, you can see that the plots look quite similar, but remember the numbers on the y-axis is different.
+Foreign_Immigration %>% 
+  ggplot(aes(x = Year, y = Immigrants, color = Country)) +
+  geom_point()+
+  labs(title = "Foreign Immigration", x = "Year", y = "Immigrants")
+```
+```{r Foreign Immigration 1980-2019}
+Foreign_Immigration %>% 
+  ggplot(aes(x = Year, y = Immigrants, color = Gender)) +
+  geom_point ()+
+  labs(title = "Foreign Immigration", x = "Gender", y = "Immigrants")
+```
+```{r Foreign Immigration 1980-2019}
+#In this boxplot with only foreign immigrants, the women from Taiwan actually exceed the men from Taiwan, that must mean more Danish males immigrate from Taiwan than Danish females, since this plot clearly shows that during the period, more foreign females than have in average travelled to Denmark. Interesting indeed!
+Foreign_Immigration %>% 
+  ggplot(aes(x = Gender, y = Immigrants, color = Country)) +
+  geom_boxplot ()+
+  scale_y_log10()+
+  labs(title = "Foreign Immigration", x = "Gender", y = "Immigrants")
+```
+```{r Foreign Immigration 1980-2019}
+# Here, both Singapore and Hong Kong have also a few more male than female immigrants.
+Foreign_anim <- Foreign_Immigration %>% 
+  ggplot(aes(x = Year, y = Immigrants, color = Country)) +
+  geom_point()+
+  transition_states(Gender)+
+  labs(title = "Foreign Immigration", x = "Year", y = "Immigrants")
+```
+```{r Foreign Immigration 1980-2019}
+Foreign_anim + transition_states(Gender, transition_length = 1, state_length = 1)+
+  labs (title = "Foreign Immigration in {closest_state}", x = "Gender", y = "Immigrants")
+```
