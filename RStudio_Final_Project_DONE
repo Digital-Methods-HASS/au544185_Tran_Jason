@@ -83,10 +83,8 @@ Causes %>%
   geom_boxplot() +
   labs(title = "Causes of Immigration", x = "Country of origin", y = "Immigrants")
 ```
-```{r Citizenship 1980-2019}
-#Now I know the main reasons for Chinese immigration to Denmark. Now I want to know, whether or not they have Chinese citizenship or not. I.e. if a Danish person lives and works in China, do they count in the statistics?
-```
 
+#Now I know the main reasons for Chinese immigration to Denmark. Now I want to know, whether or not they have Chinese citizenship or not. I.e. if a Danish person lives and works in China, do they count in the statistics?
 ```{r Citizenship 1980-2019}
 #Now I know the main reasons for Chinese immigration to Denmark. I could use the same spreadsheet to answer my question of what causes the Chinese have for immigrating to Denmark. Now I want to know, whether or not they have Chinese citizenship or not. By using this plot it becomes quite clear that it is mainly foreign citizens who immigrate to Denmark.
 Citizenship %>% 
