@@ -311,5 +311,23 @@
     "repeat": false,
     "repeatCount": 10,
     "description": "Text transform on cells in column Year using expression value.toNumber()"
+  },
+  {
+    "op": "core/fill-down",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Gender",
+    "description": "Fill down cells in column Gender"
+  },
+  {
+    "op": "core/fill-down",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Indvandring efter statsborgerskab, køn, indvandringsland og tid",
+    "description": "Fill down cells in column Indvandring efter statsborgerskab, køn, indvandringsland og tid"
   }
 ]
